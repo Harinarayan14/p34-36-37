@@ -74,7 +74,7 @@ function setup(){
 
 function draw() {
   database.ref("/").set({
-colour : col
+col : colour
   })
   drawSprites();
 }
