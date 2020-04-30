@@ -1,6 +1,5 @@
 var database;
 
-var brush;
 var pos = [];
 var position= [];
 var col = "black";
@@ -73,9 +72,6 @@ function setup(){
 
 
 function draw() {
-  database.ref("/").set({
-col : colour
-  })
   drawSprites();
 }
 function mouseDragged(){
