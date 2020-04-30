@@ -73,6 +73,9 @@ function setup(){
 
 
 function draw() {
+  database.ref("/").set({
+colour : col
+  })
   drawSprites();
 }
 function mouseDragged(){
