@@ -92,8 +92,8 @@ function readOperator(data){
   var positio = data.val();
   console.log(positio);
   for(var i = 0;i<position.length;i++){
-  position[i][0] = pos.x;
-  position[i][1] = pos.y;
+  position[i][0] = positio.x;
+  position[i][1] = positio.y;
 }
 }
 
