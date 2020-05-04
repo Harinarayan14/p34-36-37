@@ -101,7 +101,6 @@ array1.push(position);
 }
 
 function readOperator(data){
-<<<<<<< HEAD
   var pos = data.val();
   console.log(pos);
   if(pos!== null){
@@ -110,17 +109,6 @@ function readOperator(data){
   //pos = positio.y;
   rect(pos[i][0],pos[i][1],w,w);
 }}
-=======
-  var positio = data.val();
-  //console.log(positio);
-  positio = positio;
- 
-  console.log(positio);
-  for(var i = 0;i<position.length;i++){
-  position[i][0] = positio.x;
-  position[i][1] = positio.y;
-}
->>>>>>> 9c49e3915e49569aed62f40f6256b48c2c1b6a92
 }
 
 function showError(){
