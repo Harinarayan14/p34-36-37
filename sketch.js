@@ -5,7 +5,6 @@ var position= [];
 var array1 = [];
 var col = "black";
 var index = 0;
-var indexc = 0;
 
 
 function setup(){
@@ -68,7 +67,7 @@ function setup(){
   Slider1 = createSlider(0,100,0);
   Slider1.position(1020,500);
   database = firebase.database();
-  var Positionref = database.ref("position");
+  var Positionref = database.ref("position/pos");
   Positionref.on("value",readOperator,showError);
   colour();
 }
@@ -81,7 +80,7 @@ function draw() {
     index++;}
   var x0 ="position/pos" + index ;
   database.ref(x0).update({
-index : position[i]
+position : position[i]
 
       })}
   drawSprites();
@@ -102,6 +101,16 @@ array1.push(position);
 }
 
 function readOperator(data){
+<<<<<<< HEAD
+  var pos = data.val();
+  console.log(pos);
+  if(pos!== null){
+  for(var i = 0;i<pos.length;i++){
+  //pos = positio.x;
+  //pos = positio.y;
+  rect(pos[i][0],pos[i][1],w,w);
+}}
+=======
   var positio = data.val();
   //console.log(positio);
   positio = positio;
@@ -111,6 +120,7 @@ function readOperator(data){
   position[i][0] = positio.x;
   position[i][1] = positio.y;
 }
+>>>>>>> 9c49e3915e49569aed62f40f6256b48c2c1b6a92
 }
 
 function showError(){
