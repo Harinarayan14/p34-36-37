@@ -3,7 +3,10 @@ var database;
 var brush;
 var pos = [];
 var position= [];
+var array1 = [];
 var col = "black";
+var index = 0;
+var indexc = 0;
 
 
 function setup(){
@@ -66,21 +69,30 @@ function setup(){
   Slider1 = createSlider(0,100,0);
   Slider1.position(1020,500);
   database = firebase.database();
-  var ballPosition = database.ref("position/pos");
-  ballPosition.on("value",readOperator,showError);
+  var Positionref = database.ref("position");
+  Positionref.on("value",readOperator,showError);
   colour();
 }
 
 
 function draw() {
+  //console.log(position);
+  for(var i = 0;i<position.length;i++){
+    if(position[i]!== null){
+    index++;}
+  var x0 ="position/pos" + index ;
+  database.ref(x0).update({
+index : position[i]
+
+      })}
   drawSprites();
+
 }
 function mouseDragged(){
-  database.ref("position").set({
-pos : pos
-  })
+  
 pos=[mouseX,mouseY];
 position.push(pos);
+array1.push(position);
   var fVal = Slider1.value();
   w =map(fVal, 0, 100, 1, 5);
   for(var i = 0;i<position.length;i++){
@@ -89,13 +101,12 @@ position.push(pos);
    rect(position[i][0],position[i][1],w,w);
 }
 }
+
 function readOperator(data){
   var positio = data.val();
-  console.log(positio);
-  for(var i = 0;i<position.length;i++){
-  position[i][0] = pos.x;
-  position[i][1] = pos.y;
-}
+  //console.log(positio);
+  positio = positio;
+ 
 }
 
 function showError(){
