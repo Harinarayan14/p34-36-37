@@ -103,17 +103,14 @@ array1.push(position);
 
 function readOperator(data){
   var positio = data.val();
-<<<<<<< HEAD
   //console.log(positio);
   positio = positio;
  
-=======
   console.log(positio);
   for(var i = 0;i<position.length;i++){
   position[i][0] = positio.x;
   position[i][1] = positio.y;
 }
->>>>>>> 950d8f1a0adb4b401b20430fe538ac5641e6eb53
 }
 
 function showError(){
