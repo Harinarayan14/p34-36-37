@@ -40,7 +40,7 @@ function setup(){
   button7 = createButton("click");
   button7.position(1020,250);
   pink1 = createSprite(1100,250,40,40);
-  pink1.shapeColor = "pink";
+  pink1.shapeColor = "pink";   
   button8 = createButton("click");
   button8.position(1080,250);
   aqua1 = createSprite(1160,250,40,40);
