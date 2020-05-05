@@ -67,52 +67,60 @@ function setup(){
   Slider1 = createSlider(0,100,0);
   Slider1.position(1020,500);
   database = firebase.database();
-  var Positionref = database.ref("position/pos");
-  Positionref.on("value",readOperator,showError);
+  
   colour();
 }
 
 
 function draw() {
-  //console.log(position);
-  for(var i = 0;i<position.length;i++){
-    if(position[i]!== null){
-    index++;}
-  var x0 ="position/pos" + index ;
-  database.ref(x0).update({
-position : position[i]
-
-      })}
+  Fetch();
   drawSprites();
 
-}
-function mouseDragged(){
-  
-pos=[mouseX,mouseY];
-position.push(pos);
-array1.push(position);
-  var fVal = Slider1.value();
-  w =map(fVal, 0, 100, 1, 5);
-  for(var i = 0;i<position.length;i++){
-    noStroke();
-    fill(col);
-   rect(position[i][0],position[i][1],w,w);
+if(mouseX>=0 && mouseX<=1000 && mouseY>=0 &&mouseY<=600){
+  if(mouseIsPressed){
+    pos=[mouseX,mouseY];
+    position.push(pos);
+    
+    var fVal = Slider1.value();
+    w =map(fVal, 0, 100, 5, 10);
+    Update();
+  }
 }
 }
 
 function readOperator(data){
   var pos = data.val();
-  console.log(pos);
+  //console.log(pos);
   if(pos!== null){
-  for(var i = 0;i<pos.length;i++){
-  //pos = positio.x;
-  //pos = positio.y;
-  rect(pos[i][0],pos[i][1],w,w);
-}}
+    for(var a in pos){
+      fill(pos[a].colour);
+    rect(pos[a].x,pos[a].y,pos[a].width,pos[a].width);
+    }
+  }
 }
+  
+  
 
 function showError(){
   console.log("error");
+}
+
+function Update(){
+  for(var i = 0;i<position.length;i++){
+    if(position[i]!== null){
+    index++;}
+  var positionindex ="position" + index ; 
+  database.ref(positionindex).set({
+    x: mouseX,
+    y: mouseY,
+    colour:col,
+    width:w
+      })}
+}
+async function Fetch(){
+  var Positionref = database.ref("/");
+  Positionref.once("value",readOperator,showError);
+  
 }
 function colour(){
   button1.mousePressed(function(){
