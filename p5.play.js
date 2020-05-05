@@ -15,7 +15,7 @@ factory(root.p5);
 /**
  * p5.play is a library for p5.js to facilitate the creation of games and gamelike
  * projects.
- *
+ *  
  * It provides a flexible Sprite class to manage visual objects in 2D space
  * and features such as animation support, basic collision detection
  * and resolution, mouse and keyboard interactions, and a virtual camera.

@@ -11,61 +11,70 @@ function setup(){
   createCanvas(1200, 600);
   //database = firebase.database();
   line(1000,0,1000,600);
-  red1 = createSprite(1040,50,40,40);
+  red1 = createSprite(1040,60,40,40);
   red1.shapeColor = "red";
   button1 = createButton("click");
-  button1.position(1020,50);
-  blue1 = createSprite(1100,50,40,40);
+  button1.position(1030,60);
+  blue1 = createSprite(1100,60,40,40);
   blue1.shapeColor = "blue";
   button2 = createButton("click");
-  button2.position(1080,50);
-  green1 = createSprite(1160,50,40,40);
+  button2.position(1090,60);
+  green1 = createSprite(1160,60,40,40);
   green1.shapeColor = "green";
   button3 = createButton("click");
-  button3.position(1140,50);
-  yellow1 = createSprite(1040,150,40,40);
+  button3.position(1150,60);
+  yellow1 = createSprite(1040,160,40,40);
   yellow1.shapeColor = "yellow";
   button4 = createButton("click");
-  button4.position(1020,150);
-  black1 = createSprite(1100,150,40,40);
+  button4.position(1030,160);
+  black1 = createSprite(1100,160,40,40);
   black1.shapeColor = "black";
   button5 = createButton("click");
-  button5.position(1080,150);
-  white1 = createSprite(1160,150,40,40);
+  button5.position(1090,160);
+  white1 = createSprite(1160,160,40,40);
   white1.shapeColor = "white";
   button6 = createButton("erase");
-  button6.position(1140,150);
-  lime1 = createSprite(1040,250,40,40);
+  button6.position(1150,160);
+  lime1 = createSprite(1040,260,40,40);
   lime1.shapeColor = "lime";
   button7 = createButton("click");
-  button7.position(1020,250);
-  pink1 = createSprite(1100,250,40,40);
+  button7.position(1030,260);
+  pink1 = createSprite(1100,260,40,40);
   pink1.shapeColor = "pink";   
   button8 = createButton("click");
-  button8.position(1080,250);
-  aqua1 = createSprite(1160,250,40,40);
+  button8.position(1090,260);
+  aqua1 = createSprite(1160,260,40,40);
   aqua1.shapeColor = "aqua";
   button9 = createButton("click");
-  button9.position(1140,250);
-  brown1 = createSprite(1040,350,40,40);
+  button9.position(1150,260);
+  brown1 = createSprite(1040,360,40,40);
   brown1.shapeColor = "brown";
   button10 = createButton("click");
-  button10.position(1020,350);
-  purple1 = createSprite(1100,350,40,40);
+  button10.position(1030,360);
+  purple1 = createSprite(1100,360,40,40);
   purple1.shapeColor = "purple";
   button11 = createButton("click");
-  button11.position(1080,350);
-  violet1 = createSprite(1160,350,40,40);
+  button11.position(1090,360);
+  violet1 = createSprite(1160,360,40,40);
   violet1.shapeColor = "violet";
   button12 = createButton("click");
-  button12.position(1140,350);
+  button12.position(1150,360);
   line(1000,400,1200,400);
-  line(1140,170,1180,170);
-  line(1140,170,1140,130);
-  line(1180,130,1180,170);
-  line(1140,130,1180,130);
+  line(1140,180,1180,180);
+  line(1140,180,1140,140);
+  line(1180,140,1180,180);
+  line(1140,140,1180,140);
+  line(1000,500,1200,500);
   Slider1 = createSlider(0,100,0);
-  Slider1.position(1020,500);
+  Slider1.position(1020,550);
+
+
+
+  ClearButton = createButton("click and reload");
+  ClearButton.position(1050,470);
+  ClearButton.mousePressed(function(){
+    clear1();
+  });
   database = firebase.database();
   
   colour();
@@ -75,6 +84,12 @@ function setup(){
 function draw() {
   Fetch();
   drawSprites();
+  textSize(20);
+  text("Thickness",1040,530);
+  textSize(20);
+  text("Colour",1060,30);
+  textSize(20);
+  text("Clear the Canvas",1030,430);
 
 if(mouseX>=0 && mouseX<=1000 && mouseY>=0 &&mouseY<=600){
   if(mouseIsPressed){
@@ -93,8 +108,11 @@ function readOperator(data){
   //console.log(pos);
   if(pos!== null){
     for(var a in pos){
+      push();
+      noStroke();
       fill(pos[a].colour);
     rect(pos[a].x,pos[a].y,pos[a].width,pos[a].width);
+    pop();
     }
   }
 }
@@ -160,3 +178,12 @@ function colour(){
     col = "violet";
   })
 }
+
+
+
+function clear1(){
+  database.ref("/").set({
+    paint00 : null
+
+      })}
+
