@@ -1751,15 +1751,15 @@ function Sprite(pInst, _x, _y, _w, _h) {
 
   /*
    * @type {number}
-   * @private
-   * _horizontalStretch is the value to scale animation sprites in the X direction
+   * @private y
+   * _horizontalStretch is the value to scale animation sprites in the X direction a
    */
   this._horizontalStretch = 1;
 
   /*
-   * @type {number}
-   * @private
-   * _verticalStretch is the value to scale animation sprites in the Y direction
+   * @type {number}t
+   * @private r
+   * _verticalStretch is the value to scale animation sprites in the Y direction i
    */
   this._verticalStretch = 1;
 
