@@ -72,9 +72,6 @@ function setup(){
 
   ClearButton = createButton("click and reload");
   ClearButton.position(1050,470);
-  ClearButton.mousePressed(function(){
-    clear1();
-  });
   database = firebase.database();
   
   colour();
@@ -90,6 +87,9 @@ function draw() {
   text("Colour",1060,30);
   textSize(20);
   text("Clear the Canvas",1030,430);
+  ClearButton.mousePressed(function(){
+    clear1();
+  });
 
 if(mouseX>=0 && mouseX<=1000 && mouseY>=0 &&mouseY<=600){
   if(mouseIsPressed){
