@@ -10,7 +10,6 @@ var index = 0;
 function setup(){
   createCanvas(1200, 600);
   //database = firebase.database();
-  line(1000,0,1000,600);
   red1 = createSprite(1040,60,40,40);
   red1.shapeColor = "red";
   button1 = createButton("click");
@@ -74,6 +73,7 @@ function setup(){
 
 function draw() {
   
+  line(1000,0,1000,600);
   line(1000,400,1200,400);
   line(1140,180,1180,180);
   line(1140,180,1140,140);
