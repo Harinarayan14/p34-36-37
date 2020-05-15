@@ -59,12 +59,6 @@ function setup(){
   violet1.shapeColor = "violet";
   button12 = createButton("click");
   button12.position(1150,360);
-  line(1000,400,1200,400);
-  line(1140,180,1180,180);
-  line(1140,180,1140,140);
-  line(1180,140,1180,180);
-  line(1140,140,1180,140);
-  line(1000,500,1200,500);
   Slider1 = createSlider(0,100,0);
   Slider1.position(1020,550);
 
@@ -79,6 +73,13 @@ function setup(){
 
 
 function draw() {
+  
+  line(1000,400,1200,400);
+  line(1140,180,1180,180);
+  line(1140,180,1140,140);
+  line(1180,140,1180,180);
+  line(1140,140,1180,140);
+  line(1000,500,1200,500);
   Fetch();
   drawSprites();
   textSize(20);
@@ -107,6 +108,7 @@ function readOperator(data){
   var pos = data.val();
   //console.log(pos);
   if(pos!== null){
+    clear();
     for(var a in pos){
       push();
       noStroke();
