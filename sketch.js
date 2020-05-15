@@ -108,7 +108,6 @@ function readOperator(data){
   var pos = data.val();
   //console.log(pos);
   if(pos!== null){
-    clear();
     for(var a in pos){
       push();
       noStroke();
@@ -185,7 +184,8 @@ function colour(){
 
 function clear1(){
   database.ref("/").set({
-    paint00 : null
+    paint00 : null;
+    clear();
 
       })}
 
