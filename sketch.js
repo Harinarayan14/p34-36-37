@@ -185,7 +185,7 @@ function colour(){
 function clear1(){
     clear();
   database.ref("/").set({
-    paint00 : null;
+    paint00 : null
 
-      })}
+      })};
 
